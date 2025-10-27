@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Custom grid utilities for 4-column layout */
+@utility tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -55,16 +62,10 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
-}
-
-/* Custom grid utilities for 4-column layout */
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
 }
