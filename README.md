@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AnyTool - Free Online Tools
+
+A comprehensive collection of free online tools for developers, designers, and content creators.
+
+## Features
+
+- 🎨 **AI Tools**: Image generation, video creation, background removal
+- 🔧 **Developer Tools**: Code compiler, JSON editor, regex tester
+- 📄 **PDF Tools**: PDF converter, PDF to Word, PDF to Image
+- 🖼️ **Image Tools**: Image beautifier, watermark tools, drawing board
+- 🔐 **Security Tools**: Code obfuscation, encryption tools
+- 📱 **Utility Tools**: QR code generator, URL shortener, barcode generator
+
+## Tech Stack
+
+- **Framework**: Next.js 14
+- **UI Components**: shadcn/ui
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Theme**: next-themes
 
 ## Getting Started
 
-First, run the development server:
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install dependencies
+bun install
+
+# Run development server
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+bun run build
+bun run start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+anytool/
+├── app/                    # Next.js app directory
+│   ├── tools/             # Individual tool pages
+│   ├── page.tsx           # Home page
+│   └── layout.tsx         # Root layout
+├── components/            # React components
+│   ├── ui/               # shadcn/ui components
+│   ├── header.tsx        # Header component
+│   ├── sidebar.tsx       # Sidebar navigation
+│   └── tool-card.tsx     # Tool card component
+└── public/               # Static assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Available Tools
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### AI Tools
+- AI Image To Video
+- AI Video Generator
+- AI Image Generator
+- Background Remover
+- Image Beautifier
+- And many more...
 
-## Deploy on Vercel
+### Developer Tools
+- Online Code Compiler
+- JSON Editor
+- Regex Tester
+- JS Code Obfuscator
+- Python Obfuscator
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Converter Tools
+- PDF to Word
+- PDF to Image
+- Base64 to PDF
+- Audio to Base64
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT License
+
+## Author
+
+Created with ❤️ by Bhanwar Lal

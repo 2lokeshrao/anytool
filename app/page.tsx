@@ -1,103 +1,184 @@
-import Image from "next/image";
+import { Header } from "@/components/header"
+import { Sidebar } from "@/components/sidebar"
+import { ToolCard } from "@/components/tool-card"
+import { Button } from "@/components/ui/button"
+
+const categories = [
+  { name: "ALL", active: true },
+  { name: "Favorite", active: false },
+  { name: "Development", active: false },
+  { name: "Runs", active: false },
+  { name: "Base64", active: false },
+  { name: "AI", active: false },
+  { name: "Toolboxs", active: false },
+  { name: "Converts", active: false },
+  { name: "PDF", active: false },
+]
+
+const tools = [
+  {
+    title: "AI Image To Video",
+    description: "Convert images or text into pro-quality videos with AI. Free, fast, and easy. Create stunning content now!",
+    icon: "🎬",
+    badge: "PRO",
+    href: "/tools/ai-image-to-video"
+  },
+  {
+    title: "AI Video Generator",
+    description: "Turn text and images into captivating videos with our free AI video generator. Fast, easy, and no watermark—create yours in seconds.",
+    icon: "🎥",
+    badge: "PRO",
+    href: "/tools/ai-video-generator"
+  },
+  {
+    title: "AI Image Generator",
+    description: "Generate stunning images from text prompts free with ToolA's AI. Choose styles, get unique visuals in seconds—no signup.",
+    icon: "🖼️",
+    badge: "PRO",
+    href: "/tools/ai-image-generator"
+  },
+  {
+    title: "Background Remover",
+    description: "Remove image backgrounds instantly with our free AI tool. Get transparent PNGs, offline support, and unlimited uses—no signup needed.",
+    icon: "✂️",
+    badge: "PRO",
+    href: "/tools/background-remover"
+  },
+  {
+    title: "Image Beautifier",
+    description: "Beautify photos online: crop, annotate, zoom, and export HD images for social media. Fast and free—try now!",
+    icon: "✨",
+    badge: "PRO",
+    href: "/tools/image-beautifier"
+  },
+  {
+    title: "Online Drawing Board",
+    description: "Use our free online drawing board to paint, sketch, and try unique effects. No download needed, easy and fun.",
+    icon: "🎨",
+    badge: "PRO",
+    href: "/tools/online-drawing-board"
+  },
+  {
+    title: "Image Watermark & Beautifier",
+    description: "Protect and enhance photos online: add watermarks, beautify images, and export in HD quality. Fast, free, and easy to use. Try now!",
+    icon: "💧",
+    badge: "PRO",
+    href: "/tools/image-watermark-beautifier"
+  },
+  {
+    title: "Image to Prompts",
+    description: "Convert images to detailed, high-quality AI art prompts instantly for Midjourney & Stable Diffusion. Free, fast, & Stable Diffusion. Free, fast.",
+    icon: "🔮",
+    badge: "PRO",
+    href: "/tools/image-to-prompts"
+  },
+  {
+    title: "Free Image Recognition",
+    description: "Unlock powerful, free image recognition capabilities. Instantly detect objects, extract text (OCR), and analyze faces with our advanced AI tool.",
+    icon: "👁️",
+    badge: "PRO",
+    href: "/tools/free-image-recognition"
+  },
+  {
+    title: "Free Nanobanana Image Generator",
+    description: "Use the Free Nano Banana AI to create stunning visuals & smooth video transitions. Generate pro-quality video from two images with seamless, fast edits.",
+    icon: "🍌",
+    badge: "PRO",
+    href: "/tools/free-nanobanana-image-generator"
+  },
+  {
+    title: "Free Turbo Image Generator",
+    description: "Use the Free Turbo AI Image Generator for real-time art creation. Get SDXL Turbo speed, generating high-quality images in a single, fast click.",
+    icon: "⚡",
+    badge: "PRO",
+    href: "/tools/free-turbo-image-generator"
+  },
+  {
+    title: "Free Flux Image Generator",
+    description: "Create stunning, high-quality images instantly with the Free Flux AI Image Generator. Enjoy the speed, superior prompt adherence, and easy Text-to-Image art.",
+    icon: "🌊",
+    badge: "PRO",
+    href: "/tools/free-flux-image-generator"
+  },
+  {
+    title: "Free Seedream Image Generator",
+    description: "The Free Seedream AI Image Generator is an advanced AI Image Generator that creates images via text input and generates visuals with perfect character consistency.",
+    icon: "🌱",
+    badge: "PRO",
+    href: "/tools/free-seedream-image-generator"
+  },
+  {
+    title: "Chinese Calendar",
+    description: "Explore the Chinese Yellow Calendar to find lucky dates, gender predictions, and auspicious times. Free online tool with accurate results.",
+    icon: "📅",
+    href: "/tools/chinese-calendar"
+  },
+  {
+    title: "Online Code Compiler",
+    description: "Write, run, and share code online with support for C#, VB.NET, PHP, Java, and more. Fast, reliable, and no installation needed.",
+    icon: "💻",
+    href: "/tools/online-code-compiler"
+  },
+  {
+    title: "Base64 to PDF",
+    description: "Convert Base64 to PDF files online for free. Preview decoded PDFs in your browser instantly. Fast, simple, no signup required. Try it now!",
+    icon: "📄",
+    href: "/tools/base64-to-pdf"
+  },
+  {
+    title: "AI ID Photo Generator",
+    description: "Generate professional AI ID photos for passport, visa, and ID cards online for free. Fast, accurate, and easy—try HivisionIDPhotos now!",
+    icon: "📸",
+    href: "/tools/ai-id-photo-generator"
+  },
+  {
+    title: "APK Decompiler",
+    description: "Easily decompile Android APKs and recompile them online. Extract source code, make edits, and rebuild APKs for free. Get started now!",
+    icon: "📦",
+    href: "/tools/apk-decompiler"
+  },
+  {
+    title: "QR Code Generator",
+    description: "Generate free QR codes for business cards, URLs, WiFi, and more. Easy to scan and download instantly. Try our QR code generator now!",
+    icon: "📱",
+    href: "/tools/qr-code-generator"
+  },
+  {
+    title: "PHP Encrypt Decrypt",
+    description: "Protect PHP source code with our free online encrypt/decrypt tool. Ensure security with fast, efficient PHP encryption and decryption.",
+    icon: "🔐",
+    href: "/tools/php-encrypt-decrypt"
+  },
+]
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      
+      <div className="flex">
+        <Sidebar />
+        
+        <main className="flex-1 p-6">
+          <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+            {categories.map((category) => (
+              <Button
+                key={category.name}
+                variant={category.active ? "default" : "outline"}
+                className={category.active ? "bg-purple-600 hover:bg-purple-700" : ""}
+              >
+                {category.name}
+              </Button>
+            ))}
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {tools.map((tool) => (
+              <ToolCard key={tool.title} {...tool} />
+            ))}
+          </div>
+        </main>
+      </div>
     </div>
-  );
+  )
 }
