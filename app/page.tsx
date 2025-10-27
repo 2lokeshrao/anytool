@@ -152,29 +152,41 @@ const tools = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f5f5f5]">
+    <div style={{ minHeight: "100vh", backgroundColor: "#f5f5f5" }}>
       <Header />
       
-      <div className="flex">
+      <div style={{ display: "flex" }}>
         <Sidebar />
         
-        <main className="flex-1 p-4">
-          <div className="flex gap-2 mb-4 overflow-x-auto pb-2">
+        <main style={{ flex: 1, padding: "1rem" }}>
+          <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1rem", overflowX: "auto", paddingBottom: "0.5rem" }}>
             {categories.map((category) => (
               <button
                 key={category.name}
-                className={`px-3 py-1.5 rounded text-sm font-medium whitespace-nowrap transition-colors ${
-                  category.active 
-                    ? "bg-purple-600 text-white shadow-sm" 
-                    : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
-                }`}
+                style={{
+                  padding: "0.375rem 0.75rem",
+                  borderRadius: "0.25rem",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  whiteSpace: "nowrap",
+                  transition: "colors 0.2s",
+                  backgroundColor: category.active ? "#9333ea" : "#ffffff",
+                  color: category.active ? "#ffffff" : "#374151",
+                  border: category.active ? "none" : "1px solid #e5e7eb",
+                  boxShadow: category.active ? "0 1px 2px 0 rgba(0, 0, 0, 0.05)" : "none",
+                  cursor: "pointer"
+                }}
               >
                 {category.name}
               </button>
             ))}
           </div>
           
-          <div className="tools-grid">
+          <div style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(4, minmax(0, 1fr))", 
+            gap: "0.75rem" 
+          }}>
             {tools.map((tool) => (
               <ToolCard key={tool.title} {...tool} />
             ))}
