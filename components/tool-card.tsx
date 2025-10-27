@@ -9,7 +9,7 @@ interface ToolCardProps {
   href: string
 }
 
-export function ToolCard({ title, description, badge, href }: ToolCardProps) {
+export function ToolCard({ title, description, icon, badge, href }: ToolCardProps) {
   return (
     <Link href={href}>
       <div className="w-56 bg-white rounded-lg border border-gray-200 p-4 hover:shadow-lg transition-all duration-200 cursor-pointer group relative flex flex-col min-h-[220px]">
@@ -18,13 +18,7 @@ export function ToolCard({ title, description, badge, href }: ToolCardProps) {
         </div>
         
         <div className="flex items-center justify-center mb-3 mt-1">
-          <div className="w-12 h-12 flex items-center justify-center">
-            <svg className="w-full h-full text-purple-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="10" y="14" width="28" height="20" rx="2" stroke="currentColor" strokeWidth="2" opacity="0.7"/>
-              <circle cx="18" cy="22" r="3" stroke="currentColor" strokeWidth="2" opacity="0.7"/>
-              <path d="M28 24L31 27L38 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-            </svg>
-          </div>
+          <div className="text-4xl">{icon}</div>
         </div>
         
         <h3 className="text-sm font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors flex items-center gap-1 flex-wrap">
