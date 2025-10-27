@@ -79,7 +79,7 @@ export default function AIVideoGeneratorPage() {
               <li>Enter a detailed text description of your desired video</li>
               <li>Or upload an image to use as a starting point</li>
               <li>Select your preferred duration, style, and aspect ratio</li>
-              <li>Click "Generate Video" and wait for AI to create your video</li>
+              <li>Click &quot;Generate Video&quot; and wait for AI to create your video</li>
               <li>Download and share your video on social media</li>
             </ol>
           </div>

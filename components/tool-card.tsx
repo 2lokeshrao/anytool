@@ -9,15 +9,15 @@ interface ToolCardProps {
   href: string
 }
 
-export function ToolCard({ title, description, icon, badge, href }: ToolCardProps) {
+export function ToolCard({ title, description, badge, href }: ToolCardProps) {
   return (
     <Link href={href}>
-      <div className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-lg transition-all duration-200 cursor-pointer group relative h-full flex flex-col min-h-[200px]">
+      <div className="w-56 bg-white rounded-lg border border-gray-200 p-4 hover:shadow-lg transition-all duration-200 cursor-pointer group relative flex flex-col min-h-[220px]">
         <div className="absolute top-3 right-3">
           <Star className="w-4 h-4 text-gray-300 hover:text-yellow-400 hover:fill-yellow-400 cursor-pointer transition-colors" />
         </div>
         
-        <div className="flex items-center justify-center mb-3">
+        <div className="flex items-center justify-center mb-3 mt-1">
           <div className="w-12 h-12 flex items-center justify-center">
             <svg className="w-full h-full text-purple-500" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="10" y="14" width="28" height="20" rx="2" stroke="currentColor" strokeWidth="2" opacity="0.7"/>

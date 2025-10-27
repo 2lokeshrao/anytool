@@ -1,3 +1,5 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Sidebar } from "@/components/sidebar"
 import { ToolCard } from "@/components/tool-card"
@@ -158,7 +160,7 @@ export default function Home() {
       <div className="flex">
         <Sidebar />
         
-        <main className="flex-1 p-4 max-w-[1400px]">
+        <main className="flex-1 p-4">
           <div className="flex gap-2 mb-4 overflow-x-auto pb-2">
             {categories.map((category) => (
               <button
@@ -174,7 +176,7 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          <div className="grid grid-cols-4 gap-3 auto-rows-max">
             {tools.map((tool) => (
               <ToolCard key={tool.title} {...tool} />
             ))}
