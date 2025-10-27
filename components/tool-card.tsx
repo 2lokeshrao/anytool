@@ -12,7 +12,7 @@ interface ToolCardProps {
 export function ToolCard({ title, description, icon, badge, href }: ToolCardProps) {
   return (
     <Link href={href}>
-      <div className="w-56 bg-white rounded-lg border border-gray-200 p-4 hover:shadow-lg transition-all duration-200 cursor-pointer group relative flex flex-col min-h-[220px]">
+      <div className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-lg transition-all duration-200 cursor-pointer group relative flex flex-col min-h-[220px]">
         <div className="absolute top-3 right-3">
           <Star className="w-4 h-4 text-gray-300 hover:text-yellow-400 hover:fill-yellow-400 cursor-pointer transition-colors" />
         </div>
