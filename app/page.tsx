@@ -1,5 +1,3 @@
-"use client"
-
 import { Header } from "@/components/header"
 import { Sidebar } from "@/components/sidebar"
 import { ToolCard } from "@/components/tool-card"
@@ -176,7 +174,7 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="grid grid-cols-4 gap-3 auto-rows-max">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
             {tools.map((tool) => (
               <ToolCard key={tool.title} {...tool} />
             ))}
