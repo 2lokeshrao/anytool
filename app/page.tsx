@@ -158,12 +158,12 @@ export default function Home() {
       <div className="flex">
         <Sidebar />
         
-        <main className="flex-1 px-6 py-5">
-          <div className="flex gap-2 mb-5 overflow-x-auto pb-2">
+        <main className="flex-1 p-4 max-w-[1400px]">
+          <div className="flex gap-2 mb-4 overflow-x-auto pb-2">
             {categories.map((category) => (
               <button
                 key={category.name}
-                className={`px-4 py-2 rounded text-sm font-medium whitespace-nowrap transition-colors ${
+                className={`px-3 py-1.5 rounded text-sm font-medium whitespace-nowrap transition-colors ${
                   category.active 
                     ? "bg-purple-600 text-white shadow-sm" 
                     : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
@@ -174,7 +174,7 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {tools.map((tool) => (
               <ToolCard key={tool.title} {...tool} />
             ))}
