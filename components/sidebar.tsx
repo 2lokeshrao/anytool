@@ -58,19 +58,19 @@ export function Sidebar() {
   const pathname = usePathname()
   
   return (
-    <aside className="w-64 border-r bg-white h-[calc(100vh-140px)] overflow-y-auto sticky top-[140px]">
-      <div className="p-4">
+    <aside className="w-64 border-r bg-white h-[calc(100vh-140px)] overflow-y-auto sticky top-[140px] hidden lg:block">
+      <div className="p-3">
         {tools.map((tool) => (
           <Link
             key={tool.href}
             href={tool.href}
             className={cn(
-              "flex items-center gap-2 py-2 px-3 rounded text-sm hover:bg-purple-50 hover:text-purple-600 transition-colors",
+              "flex items-center gap-2 py-2 px-3 rounded text-sm hover:bg-purple-50 hover:text-purple-600 transition-colors mb-1",
               pathname === tool.href && "bg-purple-50 text-purple-600"
             )}
           >
-            <span className="text-green-500">T</span>
-            <span>{tool.name}</span>
+            <span className="text-teal-500 font-bold text-lg">T</span>
+            <span className="text-sm">{tool.name}</span>
           </Link>
         ))}
       </div>

@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { Sidebar } from "@/components/sidebar"
 import { ToolCard } from "@/components/tool-card"
-import { Button } from "@/components/ui/button"
 
 const categories = [
   { name: "ALL", active: true },
@@ -32,7 +31,7 @@ const tools = [
   },
   {
     title: "AI Image Generator",
-    description: "Generate stunning images from text prompts free with ToolA's AI. Choose styles, get unique visuals in seconds—no signup.",
+    description: "Generate stunning images from text prompts free with AnyTool's AI. Choose styles, get unique visuals in seconds—no signup.",
     icon: "🖼️",
     badge: "PRO",
     href: "/tools/ai-image-generator"
@@ -162,17 +161,20 @@ export default function Home() {
         <main className="flex-1 p-6">
           <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
             {categories.map((category) => (
-              <Button
+              <button
                 key={category.name}
-                variant={category.active ? "default" : "outline"}
-                className={category.active ? "bg-purple-600 hover:bg-purple-700" : ""}
+                className={`px-4 py-2 rounded-md text-sm font-medium whitespace-nowrap transition-colors ${
+                  category.active 
+                    ? "bg-purple-600 text-white" 
+                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+                }`}
               >
                 {category.name}
-              </Button>
+              </button>
             ))}
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {tools.map((tool) => (
               <ToolCard key={tool.title} {...tool} />
             ))}
