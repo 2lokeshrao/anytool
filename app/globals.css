@@ -69,3 +69,10 @@
     color: hsl(var(--foreground));
   }
 }
+
+/* Plain CSS grid for 4-column layout - no Tailwind utilities */
+.tools-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0.75rem !important;
+}
