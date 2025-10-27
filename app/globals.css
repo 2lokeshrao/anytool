@@ -1,10 +1,17 @@
 @import "tailwindcss";
 
-/* Custom grid utilities for 4-column layout */
-@utility tools-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
+/* Basic CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
 }
 
 @layer base {
@@ -58,21 +65,4 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
-
-@layer base {
-  * {
-    border-color: hsl(var(--border));
-  }
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-  }
-}
-
-/* Plain CSS grid for 4-column layout - no Tailwind utilities */
-.tools-grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 0.75rem !important;
 }
