@@ -66,7 +66,7 @@ const tools = [
   },
   {
     title: "Image to Prompts",
-    description: "Convert images to detailed, high-quality AI art prompts instantly for Midjourney & Stable Diffusion. Free, fast, & Stable Diffusion. Free, fast.",
+    description: "Convert images to detailed, high-quality AI art prompts instantly for Midjourney & Stable Diffusion. Free, fast.",
     icon: "🔮",
     badge: "PRO",
     href: "/tools/image-to-prompts"
@@ -152,21 +152,21 @@ const tools = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#f5f5f5]">
       <Header />
       
       <div className="flex">
         <Sidebar />
         
-        <main className="flex-1 p-6">
-          <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+        <main className="flex-1 px-6 py-5">
+          <div className="flex gap-2 mb-5 overflow-x-auto pb-2">
             {categories.map((category) => (
               <button
                 key={category.name}
-                className={`px-4 py-2 rounded-md text-sm font-medium whitespace-nowrap transition-colors ${
+                className={`px-4 py-2 rounded text-sm font-medium whitespace-nowrap transition-colors ${
                   category.active 
-                    ? "bg-purple-600 text-white" 
-                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+                    ? "bg-purple-600 text-white shadow-sm" 
+                    : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
                 }`}
               >
                 {category.name}
@@ -174,7 +174,7 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {tools.map((tool) => (
               <ToolCard key={tool.title} {...tool} />
             ))}
